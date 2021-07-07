@@ -59,8 +59,12 @@ export class EntryFormComponent implements OnInit {
   }
 
 
-  onSearch(name:string){
-    console.log('name'); 
+  onSearch(strName: string){
+    this.service.list = this.service.list.filter(x=> x.name.toLowerCase().indexOf(strName.toLowerCase()) !== -1); 
+  }
+
+  onCancel(){
+    this.service.refreshlist(); 
   }
 
 }
