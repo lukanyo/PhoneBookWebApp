@@ -1,0 +1,26 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Phone Book Entry</h1>
+</div>
+<div class="form-row border">
+    <h3>New Entry</h3>
+    <app-entry-form></app-entry-form>
+</div>
+
+<div class="form-row">
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entry of service.list">
+            <td (click)="populateForm(entry)">{{entry.name}}</td>
+            <td (click)="populateForm(entry)">{{entry.phoneNumber}}</td>
+            <td><i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(entry.id)"></i></td>
+        </tr>
+    </tbody>
+</table>
+</div>
